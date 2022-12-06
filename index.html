@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .body * {
+        position: absolute;
+        transform-style: preserve-3d;
+      }
+
+      .body {
+        height: 400px;
+        width: 300px;
+        background-color: bisque;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .head {
+        height: 150px;
+        width: 200px;
+        left: 50px;
+        top: 20px;
+        background-color: rgb(85, 190, 83);
+        transform: translateZ(10px);
+      }
+
+      .helmet_front {
+        height: 50px;
+        width: 250px;
+        left: 30px;
+        top: 13px;
+        background-color: rgb(86, 133, 220);
+        transform: translateZ(20px);
+      }
+
+      .helmet_back {
+        height: 50px;
+        width: 250px;
+        left: 30px;
+        top: 50px;
+        background-color: rgb(48, 80, 139);
+        transform: translateZ(0px);
+      }
+
+      .helmet_layer {
+        animation: float 6s ease-in-out infinite;
+        transform-style: preserve-3d;
+      }
+
+      .eye_left {
+        height: 30px;
+        width: 30px;
+        left: 30px;
+        top: 30px;
+        background-color: rgb(186, 237, 31);
+        transform: translateZ(100px);
+      }
+
+      /**/
+      /**/
+      /**/
+      @keyframes float {
+        0% {
+          transform: translatey(0px);
+        }
+        50% {
+          transform: translatey(-20px);
+        }
+        100% {
+          transform: translatey(0px);
+        }
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(-5deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    </style>
+
+    <script>
+      document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+          let box = document.querySelector(".helmet_back");
+          let width = box.translateZ;
+          console.log(width);
+        },
+        false
+      );
+    </script>
+  </head>
+
+  <body>
+    <div class="body">
+      <div class="chest_layer">
+        <div class="head_layer">
+          <div id="head" class="head">
+            <div class="eyes_layer">
+              <div class="eye_left"></div>
+              <div class="eye_right"></div>
+            </div>
+          </div>
+          <div class="helmet_layer">
+            <div class="helmet_front"></div>
+            <div id="helmet_back" class="helmet_back"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
